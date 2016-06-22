@@ -30,7 +30,7 @@ Yabar is a modern and lightweight status bar that is intended to be used along w
 A Yabar session should contain one or more *bars* within the same session. Each bar should contain one or more *blocks*. Each block should display some useful info to the user (free memory, CPU temperature, etc...).
 
 ## Installation
-Yabar initially requires libconfig, cairo and pango. The feature `DYA_INTERNAL_EWMH` in `Makefile` additionaly xcb-ewmh (or xcb-util-wm in some distros) and the feature `-DYA_ICON` requires gdk-pixbuf. These dependencies can be installed through your distribution's package manager, such as `dnf install libconfig-devel cairo-devel pango-devel` on Fedora or `sudo apt-get install libcairo2-dev libpango1.0-dev libconfig-dev libxcb-randr0-dev libxcb-ewmh-dev` on Ubuntu.
+Yabar initially requires libconfig, cairo and pango. The feature `DYA_INTERNAL_EWMH` in `Makefile` additionally xcb-ewmh (or xcb-util-wm in some distros) and the feature `-DYA_ICON` requires gdk-pixbuf. These dependencies can be installed through your distribution's package manager, such as `dnf install libconfig-devel cairo-devel pango-devel` on Fedora or `sudo apt-get install libcairo2-dev libpango1.0-dev libconfig-dev libxcb-randr0-dev libxcb-ewmh-dev` on Ubuntu.
 
 You can install yabar as follows:
 
@@ -198,7 +198,9 @@ Each block can have its command/script, background, foreground (i.e. font), unde
 
 You can change block colors(background, foreground, underline and overline) within runtime. Along with pango markup format, you can fully control how a block looks throughout yabar's session.
 
-If you wish to change one or more of the 4 color types, you must begin your string-to-be-drawn (i.e. the output string to stdout by your shell script) with `!Y FORMAT Y!`. the `FORMAT` statement should contain contain the color type (`BG` or `bg` for background, `FG` or `fg` for foreground, `U` or `u` for underline and `O` or `o` for overline). The color must be in hex AARRGGBB (So if you want to add an rgb color just make it `FFxxxxxx`). Examples:
+If you wish to change one or more of the 4 color types, you must begin your string-to-be-drawn (i.e. the output string to stdout by your shell script) with `!Y FORMAT Y!`. the `FORMAT` statement should 
+contain contain the color type (`BG` or `bg` for background, `FG` or `fg` for foreground, `U` or `u` for underline and `O` or `o` for overline). The color must be in hex AARRGGBB (So if you want to add an 
+RGB color just make it `FFxxxxxx`). Examples:
 
 		"!Y BG 0xFFFF0000 fg0xFF00ff00 U0xFFFAC739 Y!"
 		"!Ybg0xff00ff00Y!"
@@ -229,7 +231,8 @@ Internal blocks have 5 additional block-specific options:
 
 Yabar has a growing set of useful blocks. You can try out the sampe config located in `examples/internal1.config`. The current blocks are:
 
-* Date & time: Maybe the most essential block. You can control the output format using the [standard c library format](https://www.gnu.org/software/libc/manual/html_node/Formatting-Calendar-Time.html). Example:
+* Date & time: Maybe the most essential block. You can control the output format using the [standard C library format](https://www.gnu.org/software/libc/manual/html_node/Formatting-Calendar-Time.html). 
+Example:
 
 		exec: "YABAR_DATE";
 		internal-option1: "%a %d %b, %I:%M"; #Format
